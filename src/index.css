@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "AzeratMono";
+  src: url("./assets/fonts/AzeretMono-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LikeEat";
+  src: url("./assets//fonts//LikeEat.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CuteDino";
+  src: url("./assets//fonts/CuteDino.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dobidoo";
+  src: url("./assets//fonts/Dobidoo.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets//fonts/Poppins-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-azerat: "AzeratMono";
+  --font-likeeat: "LikeEat";
+  --font-cutedino: "CuteDino";
+  --font-dobidoo: "Dobidoo";
+  --font-poppins: "Poppins";
+}
+
+* {
+  box-sizing: border-box;
+  /* font-family: "AzeratMono"; */
+  /* font-family: "LikeEat"; */
+  /* font-family: "CuteDino"; */
+}
+
+.blinking-cursor::after {
+  content: "|";
+  color: aqua;
+  animation: blink 1s step-end infinite;
+  transition: all;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f5f5f5;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  /* background: url("./assets/images/wallpaper.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; */
+}
+
+.shine-strip {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.2) 60%,
+    transparent 100%
+  );
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
