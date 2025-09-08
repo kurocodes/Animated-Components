@@ -23,7 +23,8 @@ When I started diving into UI animations, I realized how much a small detail (li
 The repo is organized into component categories.  
 - Buttons
 - Cards
-- More parts coming soon (hover effects, navbars, and beyond!)
+- Navbars
+- More parts coming soon (hover effects, Switches, and beyond!)
 
 Each component includes:  
 - ✅ Clean and reusable code  
