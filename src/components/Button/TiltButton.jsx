@@ -24,10 +24,11 @@ export default function TiltButton() {
   return (
     <div className="perspective-distant">
       <motion.button
-        className="px-6 py-3 rounded-xl font-extrabold tracking-widest uppercase text-white border border-cyan-400 
-             bg-gradient-to-r from-cyan-500 to-blue-600 
-             shadow-[0_8px_20px_rgba(0,0,0,0.3),0_0_15px_rgba(0,200,255,0.6)] 
-             cursor-pointer select-none"
+        className="px-6 py-3 rounded-xl font-extrabold tracking-widest 
+                  uppercase text-white border border-cyan-400 
+                  bg-gradient-to-r from-cyan-500 to-blue-600 
+                  shadow-[0_8px_20px_rgba(0,0,0,0.3),0_0_15px_rgba(0,200,255,0.6)] 
+                  cursor-pointer select-none"
         onMouseMove={(e) => handleMouseOver(e)}
         onMouseLeave={() => handleMouseLeave()}
         style={{ rotateX: tilt.x, rotateY: tilt.y }}

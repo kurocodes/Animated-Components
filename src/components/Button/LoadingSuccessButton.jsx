@@ -16,7 +16,9 @@ export default function LoadingSuccessButton() {
   return (
     <motion.button
       onClick={handleClick}
-      className="relative min-w-32 h-12 px-6 bg-green-500 text-white font-semibold rounded-full shadow-md flex items-center justify-center overflow-hidden cursor-pointer"
+      className="relative min-w-32 h-12 px-6 bg-green-500 text-white 
+      font-semibold rounded-full shadow-md flex items-center justify-center 
+      overflow-hidden cursor-pointer"
       whileTap={{ scale: 0.95 }}
     >
       <AnimatePresence mode="wait">
@@ -35,7 +37,11 @@ export default function LoadingSuccessButton() {
 
         {/* Loading State */}
         {status === "loading" && (
-          <motion.span className="mt-2" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}>
+          <motion.span
+            className="mt-2"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
             <ClipLoader color="#fff" size={25} />
           </motion.span>
         )}

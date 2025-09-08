@@ -18,8 +18,8 @@ export default function AnimatedButtonsDemo() {
       {/* <TiltButton /> */}
       {/* <ConfettiButton /> */}
       {/* <TextSwapButton /> */}
-      {/* <LoadingSuccessButton /> */}
-      <FireTrailButton />
+      <LoadingSuccessButton />
+      {/* <FireTrailButton /> */}
     </div>
   );
 }

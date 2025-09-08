@@ -28,7 +28,8 @@ export default function ConfettiButton() {
   return (
     <div className="relative inline-block">
       <motion.button
-        className="relative z-10 px-6 py-3 rounded-xl font-bold uppercase tracking-wide bg-pink-500 text-white cursor-pointer select-none shadow-lg"
+        className="relative z-10 px-6 py-3 rounded-xl font-bold uppercase tracking-wide 
+                 bg-pink-500 text-white cursor-pointer select-none shadow-lg"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95, rotate: -2 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -44,7 +45,12 @@ export default function ConfettiButton() {
             key={particle.id}
             className="absolute z-[9] top-1/2 left-1/2 pointer-events-none select-none text-xl"
             initial={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
-            animate={{ x: particle.x, y: particle.y, rotate: particle.rotate, opacity: 0 }}
+            animate={{
+              x: particle.x,
+              y: particle.y,
+              rotate: particle.rotate,
+              opacity: 0,
+            }}
             transition={{ duration: 1, ease: "easeOut" }}
             exit={{ opacity: 0 }}
           >
