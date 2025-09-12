@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 
+const btnStyle =
+  "relative min-w-40 h-12 px-8 bg-black text-orange-400 font-semibold rounded-full shadow-lg overflow-hidden cursor-pointer border-2 border-orange-500";
+
 export default function FireTrailButton() {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
 
@@ -13,8 +16,7 @@ export default function FireTrailButton() {
 
   return (
     <motion.button
-      className="relative min-w-40 h-12 px-8 bg-black text-orange-400 font-semibold 
-                 rounded-full shadow-lg overflow-hidden cursor-pointer border-2 border-orange-500"
+      className={btnStyle}
       whileTap={{ scale: 0.95 }}
       onMouseMove={handleMouseMove}
     >

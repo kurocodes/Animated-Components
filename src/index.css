@@ -96,3 +96,37 @@ body {
 .preserve-3d {
   transform-style: preserve-3d;
 }
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animated {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #42e695);
+  background-size: 600% 600%;
+  animation: gradientShift 5s ease infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+  100% {
+    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+  }
+}
+
+.glow {
+  animation: pulseGlow 2s infinite;
+}
