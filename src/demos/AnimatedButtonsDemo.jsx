@@ -13,13 +13,13 @@ export default function AnimatedButtonsDemo() {
     <div className="flex flex-col gap-4 items-center">
       {/* <SimpleButtons /> */}
       {/* <RippleButtonsDemo /> */}
-      {/* <MorphButtons /> */}
+      <MorphButtons />
       {/* <NeonButton /> */}
       {/* <TiltButton /> */}
       {/* <ConfettiButton /> */}
       {/* <TextSwapButton /> */}
       {/* <LoadingSuccessButton /> */}
-      <FireTrailButton />
+      {/* <FireTrailButton /> */}
     </div>
   );
 }
