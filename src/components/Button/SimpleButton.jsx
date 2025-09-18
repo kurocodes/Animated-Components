@@ -51,7 +51,7 @@ export default function SimpleButtons() {
       </motion.button>
 
       {/* Pulse Ripple Button */}
-      <motion.button
+      {/* <motion.button
         className="relative overflow-hidden px-5 py-2 rounded-xl font-medium bg-emerald-500 hover:bg-emerald-600 text-white"
         onClick={() => setRippleKey(Date.now())}
         whileTap={{ scale: 0.95 }}
@@ -67,7 +67,7 @@ export default function SimpleButtons() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           />
         </AnimatePresence>
-      </motion.button>
+      </motion.button> */}
     </div>
   );
 }

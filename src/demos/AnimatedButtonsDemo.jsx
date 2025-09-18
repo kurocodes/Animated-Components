@@ -10,16 +10,16 @@ import FireTrailButton from "../components/Button/FireTrailButton";
 
 export default function AnimatedButtonsDemo() {
   return (
-    <div className="flex flex-col gap-4 items-center">
-      {/* <SimpleButtons /> */}
-      {/* <RippleButtonsDemo /> */}
+    <>
+      <SimpleButtons />
+      <RippleButtonsDemo />
       <MorphButtons />
-      {/* <NeonButton /> */}
-      {/* <TiltButton /> */}
-      {/* <ConfettiButton /> */}
-      {/* <TextSwapButton /> */}
-      {/* <LoadingSuccessButton /> */}
-      {/* <FireTrailButton /> */}
-    </div>
+      <NeonButton />
+      <TiltButton />
+      <ConfettiButton />
+      <TextSwapButton />
+      <LoadingSuccessButton />
+      <FireTrailButton />
+    </>
   );
 }

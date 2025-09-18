@@ -7,13 +7,13 @@ import UnderlineNavbar from "../components/Navbar/UnderlineNvabar";
 
 export default function AnimatedNavbarsDemo() {
   return (
-    <div className='flex justify-center items-center w-full'>
+    <>
       {/* <UnderlineNavbar /> */}
       {/* <BgHighlightNavbar /> */}
       {/* <ActiveIndicatorNavbar /> */}
       {/* <ScrollRevealNavbar /> */}
       {/* <StaggeredNavbar /> */}
       <MagneticNavbar />
-    </div>
-  )
+    </>
+  );
 }
