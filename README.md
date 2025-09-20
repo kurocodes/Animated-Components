@@ -24,6 +24,8 @@ The repo is organized into component categories.
 - Buttons
 - Cards
 - Navbars
+- Toggles
+- Modals
 - More parts coming soon (hover effects, Switches, and beyond!)
 
 Each component includes:  
