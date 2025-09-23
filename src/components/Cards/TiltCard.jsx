@@ -24,10 +24,10 @@ export default function TiltCard({ children, className = "", ...props }) {
   return (
     <div style={{ perspective: 1000 }}>
       <BaseCard
-        img={mai_san_images[2]}
+        img={mai_san_images[0]}
         imgStyle={{ x: tilt.y * 0.2, y: tilt.x * 0.2 }}
         title="Mai Sakurajima"
-        description="This is some placeholder description."
+        description="Graceful & unforgettable, just like this card’s motion."
         onMouseMove={(e) => handleMouseMove(e)}
         onMouseLeave={() => handleMouseLeave()}
         style={{

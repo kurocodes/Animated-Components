@@ -1,61 +1,216 @@
+/**
+ * BaseModal component
+ *
+ * @description A reusable modal component with animation, theming, and accessibility.
+ * @component
+ *
+ * @param {boolean} isOpen - Controls whether the modal is visible.
+ * @param {Function} onClose - Callback triggered when the modal requests to close.
+ * @param {ReactNode} [children] - Custom content. If provided, header/footer won’t render.
+ * @param {string} [title="Base Modal"] - Title text in the header (if shown).
+ * @param {string | ReactNode} [content=""] - Content in the modal body (if shown).
+ * @param {boolean} [showHeader=true] - Show the default modal header.
+ * @param {boolean} [showCloseInHeader=true] - Show close button in the header.
+ * @param {boolean} [showCloseInFooter=true] - Show close button in the footer.
+ * @param {string} [className=""] - Extra classes for modal styling.
+ * @param {string} [backdropClassName=""] - Extra classes for backdrop styling.
+ * @param {"xs"|"sm"|"md"|"lg"|"xl"|"xxl"} [size="lg"] - Modal size.
+ * @param {"light"|"dark"|"custom"} [theme="light"] - Modal theme.
+ * @param {boolean} [backdropBlur=true] - Apply blur to the backdrop.
+ * @param {boolean} [closeOnBackdropClick=true] - Allow closing by clicking backdrop.
+ * @param {boolean} [closeOnEscape=true] - Allow closing with Escape key.
+ * @param {"fadeScale"|"slideUp"|"bounce"} [animation="slideUp"] - Animation preset.
+ * @param {object} [animationProps={}] - Custom animation overrides.
+ */
 import { motion, AnimatePresence } from "motion/react";
+import { modal, backdrop, header, button } from "./modal.style";
+import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
-export default function BaseModal({ isOpen, onClose, children }) {
+const animations = {
+  fadeScale: {
+    initial: { scale: 0.95, opacity: 0 },
+    animate: { scale: 1, opacity: 1 },
+    exit: { scale: 0.95, opacity: 0 },
+  },
+  slideUp: {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: 50, opacity: 0 },
+  },
+  bounce: {
+    initial: { scale: 0.8, opacity: 0 },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: { type: "spring", bounce: 0.4 },
+    },
+    exit: { scale: 0.8, opacity: 0 },
+  },
+};
+
+function Portal({ children }) {
+  if (typeof window === "undefined") return null;
+  return createPortal(children, document.body);
+}
+
+export default function BaseModal({
+  // Control
+  isOpen,
+  onClose,
+
+  // Content
+  children,
+  title = "Base Modal",
+  content,
+
+  // Layout/UI
+  showHeader = true,
+  showCloseInHeader = true,
+  showCloseInFooter = true,
+
+  // Styling
+  className = "",
+  backdropClassName = "",
+  size = "lg",
+  theme = "light",
+  backdropBlur = true,
+
+  // Behavior
+  closeOnBackdropClick = true,
+  closeOnEscape = true,
+
+  // Animation
+  animation = "slideUp",
+  animationProps = {},
+}) {
+  const anim = animations[animation] || animations.slideUp;
+  const {
+    initial = anim.initial,
+    animate = anim.animate,
+    exit = anim.exit,
+    transition = { duration: 0.2 },
+    ...rest
+  } = animationProps;
+
+  const footerCloseRef = useRef(null);
+
+  // Focus footer close button on open
+  useEffect(() => {
+    if (isOpen && footerCloseRef.current) {
+      footerCloseRef.current.focus();
+    }
+  }, [isOpen]);
+
+  // Handle Escape key close
+  useEffect(() => {
+    if (!closeOnEscape) return;
+    const handleEsc = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onClose]);
+
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => (document.body.style.overflow = "");
+  }, [isOpen]);
+
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
-        <>
+        <Portal>
           {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 bg-opacity-50"
+            key="modal-backdrop"
+            className={backdrop({
+              blur: backdropBlur,
+              class: backdropClassName,
+            })}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={closeOnBackdropClick ? onClose : undefined}
           />
 
           {/* Modal Content */}
           <motion.div
-            className="fixed top-1/2 left-1/2 -translate-1/2 max-w-lg w-full bg-white border border-gray-300 rounded-xl"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.3 }}
+            key="modal-content"
+            role="dialog"
+            aria-labelledby="modal-title"
+            aria-modal={true}
+            className={modal({ size, theme, class: className })}
+            initial={initial}
+            animate={animate}
+            exit={exit}
+            transition={transition}
+            onClick={(e) => e.stopPropagation()}
+            {...rest}
           >
             {children || (
               <>
-                <div className="px-4 py-3 flex items-center justify-between border-b border-gray-300">
-                  <h2 className="text-lg font-bold">Basic Modal</h2>
-                  <button className="hover:bg-gray-300 p-1 rounded-md cursor-pointer" onClick={onClose}>
-                    <svg
-                      class="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      ></path>
-                    </svg>
-                  </button>
-                </div>
-                <div className="p-4 space-y-2">
-                  <p className="text-gray-500">
-                    This is a basic modal example. You can put any content here.
-                    The modal will close when you click the X button, press ESC,
-                    or click outside the modal.
-                  </p>
-                  <div className="w-full flex justify-end">
-                    <button className="bg-gray-200 px-3 py-1.5 rounded-lg hover:bg-gray-300 cursor-pointer" onClick={onClose}>Close</button>
+                {showHeader && (
+                  <div className={header({ theme })}>
+                    {/* Modal Title */}
+                    <h2 id="modal-title" className="text-lg font-bold">
+                      {title}
+                    </h2>
+
+                    {/* Modal Header Close Button */}
+                    {showCloseInHeader && (
+                      <button
+                        className={button({
+                          theme,
+                          class: "p-1 bg-transparent",
+                        })}
+                        onClick={onClose}
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          ></path>
+                        </svg>
+                      </button>
+                    )}
                   </div>
+                )}
+                <div className="p-4 space-y-2">
+                  {/* Modal Content */}
+                  <p className="text-gray-500">
+                    {content ||
+                      "This is a basic modal example. You can put any content here. The modal will close when you click the X button, press ESC, or click outside the modal."}
+                  </p>
+
+                  {/* Modal Footer Close Button */}
+                  {showCloseInFooter && (
+                    <div className="w-full flex justify-end">
+                      <button
+                        ref={footerCloseRef}
+                        className={button({ theme })}
+                        onClick={onClose}
+                      >
+                        Close
+                      </button>
+                    </div>
+                  )}
                 </div>
               </>
             )}
           </motion.div>
-        </>
+        </Portal>
       )}
     </AnimatePresence>
   );
