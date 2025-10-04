@@ -1,7 +1,11 @@
-import BasicModal from "../components/Modals/BasicModal";
+import AnimationModalView from "../components/Modals/animation-modal";
+import BasicModalView from "../components/Modals/basic-modal";
 
 export default function ModalsDemo() {
   return (
-    <BasicModal />
+    <>
+      {/* <BasicModalView /> */}
+      <AnimationModalView />
+    </>
   );
 }

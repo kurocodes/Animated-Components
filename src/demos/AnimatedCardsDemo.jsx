@@ -13,7 +13,7 @@ import TiltCard from "../components/Cards/TiltCard";
 export default function AnimatedCardsDemo() {
   return (
     <>
-      <TiltCard />
+      {/* <TiltCard /> */}
       {/* <GlassShineCard /> */}
       {/* <FlipCard /> */}
       {/* <ExpandingCard /> */}

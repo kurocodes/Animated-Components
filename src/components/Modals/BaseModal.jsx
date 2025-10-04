@@ -26,28 +26,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { modal, backdrop, header, button } from "./modal.style";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-
-const animations = {
-  fadeScale: {
-    initial: { scale: 0.95, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    exit: { scale: 0.95, opacity: 0 },
-  },
-  slideUp: {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    exit: { y: 50, opacity: 0 },
-  },
-  bounce: {
-    initial: { scale: 0.8, opacity: 0 },
-    animate: {
-      scale: 1,
-      opacity: 1,
-      transition: { type: "spring", bounce: 0.4 },
-    },
-    exit: { scale: 0.8, opacity: 0 },
-  },
-};
+import { animations } from "./modal.animation.js";
 
 function Portal({ children }) {
   if (typeof window === "undefined") return null;
@@ -81,15 +60,15 @@ export default function BaseModal({
   closeOnEscape = true,
 
   // Animation
-  animation = "slideUp",
+  animation = "scale",
   animationProps = {},
 }) {
-  const anim = animations[animation] || animations.slideUp;
+  const anim = animations[animation] || animations.scale;
   const {
     initial = anim.initial,
     animate = anim.animate,
-    exit = anim.exit,
-    transition = { duration: 0.2 },
+    // exit = anim.exit,
+    // transition = { duration: 0.3, ease: "easeInOut" },
     ...rest
   } = animationProps;
 
@@ -134,7 +113,7 @@ export default function BaseModal({
             })}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            // exit={{ opacity: 0 }}
             onClick={closeOnBackdropClick ? onClose : undefined}
           />
 
@@ -147,47 +126,47 @@ export default function BaseModal({
             className={modal({ size, theme, class: className })}
             initial={initial}
             animate={animate}
-            exit={exit}
-            transition={transition}
+            // exit={exit}
+            // transition={transition}
             onClick={(e) => e.stopPropagation()}
             {...rest}
           >
-            {children || (
-              <>
-                {showHeader && (
-                  <div className={header({ theme })}>
-                    {/* Modal Title */}
-                    <h2 id="modal-title" className="text-lg font-bold">
-                      {title}
-                    </h2>
+            {showHeader && (
+              <div className={header({ theme })}>
+                {/* Modal Title */}
+                <h2 id="modal-title" className="text-lg font-semibold">
+                  {title}
+                </h2>
 
-                    {/* Modal Header Close Button */}
-                    {showCloseInHeader && (
-                      <button
-                        className={button({
-                          theme,
-                          class: "p-1 bg-transparent",
-                        })}
-                        onClick={onClose}
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M6 18L18 6M6 6l12 12"
-                          ></path>
-                        </svg>
-                      </button>
-                    )}
-                  </div>
+                {/* Modal Header Close Button */}
+                {showCloseInHeader && (
+                  <button
+                    className={button({
+                      theme,
+                      class: "p-1 bg-transparent",
+                    })}
+                    onClick={onClose}
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      ></path>
+                    </svg>
+                  </button>
                 )}
-                <div className="p-4 space-y-2">
+              </div>
+            )}
+            <div className="p-4">
+              {children || (
+                <>
                   {/* Modal Content */}
                   <p className="text-gray-500">
                     {content ||
@@ -206,9 +185,9 @@ export default function BaseModal({
                       </button>
                     </div>
                   )}
-                </div>
-              </>
-            )}
+                </>
+              )}
+            </div>
           </motion.div>
         </Portal>
       )}

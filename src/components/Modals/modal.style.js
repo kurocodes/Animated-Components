@@ -62,7 +62,7 @@ export const backdrop = tv({
   base: "fixed inset-0",
   variants: {
     blur: {
-      true: "backdrop-blur-lg",
+      true: "backdrop-blur-sm",
       false: "",
     }
   },

@@ -2,7 +2,7 @@ import { useState } from "react";
 import BaseModal from "./BaseModal";
 import { motion } from "motion/react";
 
-export default function BasicModal() {
+export default function BasicModalView () {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = () => {
@@ -20,7 +20,7 @@ export default function BasicModal() {
         Basic Model
       </motion.button>
 
-      <BaseModal isOpen={isOpen} onClose={handleClose} />
+      <BaseModal isOpen={isOpen} onClose={handleClose} animation="bounce" />
     </>
   );
 }
