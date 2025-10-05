@@ -4,12 +4,11 @@ export const modal = tv({
   base: "fixed top-1/2 left-1/2 -translate-1/2 w-full border rounded-xl",
   variants: {
     size: {
-      xs: "max-w-xs",
-      sm: "max-w-sm",
-      md: "max-w-md",
-      lg: "max-w-lg",
-      xl: "max-w-xl",
-      xxl: "max-w-4xl",
+      xs: "max-w-sm",
+      sm: "max-w-md",
+      md: "max-w-lg",
+      lg: "max-w-2xl",
+      xl: "max-w-4xl",
     },
     theme: {
       light: `

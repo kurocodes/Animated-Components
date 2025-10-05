@@ -51,7 +51,7 @@ export default function BaseModal({
   // Styling
   className = "",
   backdropClassName = "",
-  size = "lg",
+  size = "md",
   theme = "light",
   backdropBlur = true,
 
@@ -164,9 +164,9 @@ export default function BaseModal({
                 )}
               </div>
             )}
-            <div className="p-4">
+            <div className="p-4 max-h-[85vh] overflow-y-auto">
               {children || (
-                <>
+                <div className="space-y-4">
                   {/* Modal Content */}
                   <p className="text-gray-500">
                     {content ||
@@ -185,7 +185,7 @@ export default function BaseModal({
                       </button>
                     </div>
                   )}
-                </>
+                </div>
               )}
             </div>
           </motion.div>
