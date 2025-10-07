@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div
-      className={`flex flex-col gap-4 items-center justify-center h-screen bg-[#fff7f7] dark:bg-[#000]`}
+      className={`relative flex flex-col gap-4 items-center justify-center h-screen bg-[#fff7f7] dark:bg-[#000]`}
     >
       {/* <AnimatedButtonsDemo /> */}
       {/* <AnimatedCardsDemo /> */}
@@ -22,7 +22,7 @@ const App = () => {
       {/* <ToggleSwitchDemo /> */}
       <ModalsDemo />
 
-      <button onClick={toggleTheme} className="cursor-pointer bg-white">
+      <button onClick={toggleTheme} className="absolute top-4 right-4 bg-gray-200 dark:bg-gray-800 p-2 rounded-full cursor-pointer">
         <img
           src={theme === "light" ? icons.moon : icons.sun}
           alt="Change theme"

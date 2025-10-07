@@ -27,6 +27,7 @@ import { modal, backdrop, header, button } from "./modal.style";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { animations } from "./modal.animation.js";
+import { useTheme } from "../../context/ThemeContext.jsx";
 
 function Portal({ children }) {
   if (typeof window === "undefined") return null;
@@ -52,7 +53,7 @@ export default function BaseModal({
   className = "",
   backdropClassName = "",
   size = "md",
-  theme = "light",
+  theme,
   backdropBlur = true,
 
   // Behavior
@@ -63,6 +64,9 @@ export default function BaseModal({
   animation = "scale",
   animationProps = {},
 }) {
+  const { theme: globalTheme } = useTheme();
+  const resolvedTheme = theme || globalTheme;
+
   const anim = animations[animation] || animations.scale;
   const {
     initial = anim.initial,
@@ -123,7 +127,7 @@ export default function BaseModal({
             role="dialog"
             aria-labelledby="modal-title"
             aria-modal={true}
-            className={modal({ size, theme, class: className })}
+            className={modal({ size, theme: resolvedTheme, class: className })}
             initial={initial}
             animate={animate}
             // exit={exit}
@@ -132,7 +136,7 @@ export default function BaseModal({
             {...rest}
           >
             {showHeader && (
-              <div className={header({ theme })}>
+              <div className={header({ theme: resolvedTheme })}>
                 {/* Modal Title */}
                 <h2 id="modal-title" className="text-lg font-semibold">
                   {title}
@@ -142,7 +146,7 @@ export default function BaseModal({
                 {showCloseInHeader && (
                   <button
                     className={button({
-                      theme,
+                      theme: resolvedTheme,
                       class: "p-1 bg-transparent",
                     })}
                     onClick={onClose}
@@ -178,7 +182,7 @@ export default function BaseModal({
                     <div className="w-full flex justify-end">
                       <button
                         ref={footerCloseRef}
-                        className={button({ theme })}
+                        className={button({ theme: resolvedTheme })}
                         onClick={onClose}
                       >
                         Close
