@@ -14,7 +14,7 @@ export default function SizeVariantsModalView() {
     {
       size: "md",
       name: "Medium",
-      color: "bg-slate-900 hover:bg-slate-800",
+      color: "bg-slate-900 dark:bg-slate-200 hover:bg-slate-800 hover:dark:bg-slate-300 text-white dark:text-slate-900 font-medium",
     },
     {
       size: "lg",
@@ -58,13 +58,13 @@ export default function SizeVariantsModalView() {
         size="sm"
       >
         <div className="space-y-4">
-          <p className="text-gray-500">
+          <p className="text-gray-600 dark:text-gray-400">
             Perfect for confirmations and simple alerts. Max width: 448px
             (28rem).
           </p>
           <div className="flex justify-end space-x-2">
             <button
-              className="bg-[hsl(220,15%,90%)] hover:bg-[hsl(220,15%,80%)] px-3 py-1.5 rounded-md cursor-pointer"
+              className="bg-[hsl(220,15%,90%)] hover:bg-[hsl(220,15%,80%)] dark:bg-[hsl(220,15%,20%)] hover:dark:bg-[hsl(220,15%,30%)] px-3 py-1.5 rounded-md cursor-pointer"
               onClick={closeModal}
             >
               Cancel
@@ -87,12 +87,12 @@ export default function SizeVariantsModalView() {
         size="md"
       >
         <div className="space-y-4">
-          <p className="text-gray-500">
+          <p className="text-gray-600 dark:text-gray-400">
             Default size, good for most content. Max width: 512px (32rem).
           </p>
-          <div className="bg-[hsl(220,15%,95%)] p-4 rounded-lg">
-            <h3 className="font-medium mb-2 text-gray-800">Sample Content</h3>
-            <p className="text-sm text-gray-600">
+          <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+            <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Sample Content</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               This is the standard modal size that works well for most use cases
               including forms, notifications, and general content.
             </p>
@@ -116,20 +116,20 @@ export default function SizeVariantsModalView() {
         size="lg"
       >
         <div className="space-y-4">
-          <p className="text-gray-500">
+          <p className="text-gray-600 dark:text-gray-400">
             Great for detailed information and forms. Max width: 672px (42rem).
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-[hsl(220,15%,95%)] p-4 rounded-lg">
-              <h3 className="font-medium mb-2 text-gray-800">Feature 1</h3>
-              <p className="text-sm text-gray-600">
+            <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+              <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Feature 1</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 Large modals provide more space for complex layouts and detailed
                 information.
               </p>
             </div>
-            <div className="bg-[hsl(220,15%,95%)] p-4 rounded-lg">
-              <h3 className="font-medium mb-2 text-gray-800">Feature 2</h3>
-              <p className="text-sm text-gray-600">
+            <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+              <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Feature 2</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 Perfect for multi-column layouts and comprehensive forms.
               </p>
             </div>
@@ -153,15 +153,18 @@ export default function SizeVariantsModalView() {
         size="xl"
       >
         <div className="space-y-4">
-          <p className="text-gray-500">
+          <p className="text-gray-600 dark:text-gray-400">
             Best for complex layouts and extensive content. Max width: 896px
             (56rem).
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-lg border border-gray-200">
-                <h3 className="font-medium mb-2 text-gray-800">Item {item}</h3>
-                <p className="text-sm text-gray-600">
+              <div
+                key={item}
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 rounded-lg border border-gray-200 dark:border-gray-700"
+              >
+                <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Item {item}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
                   Extra large modals can accommodate extensive content and
                   complex data presentations.
                 </p>

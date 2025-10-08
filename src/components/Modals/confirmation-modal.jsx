@@ -104,10 +104,7 @@ export default function ConfirmatioModalView() {
           </div>
 
           <div className="flex justify-end space-x-3">
-            <button
-              className="bg-[hsl(220,15%,90%)] hover:bg-[hsl(220,15%,80%)] text-sm font-medium px-3 py-1.5 rounded-md cursor-pointer"
-              onClick={() => setIsDeleteOpen(false)}
-            >
+            <button className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 hover:dark:bg-slate-700 text-sm font-medium px-3 py-2 rounded-md cursor-pointer">
               Cancel
             </button>
             <button
@@ -164,7 +161,7 @@ export default function ConfirmatioModalView() {
 
           <div className="flex justify-end space-x-3">
             <button
-              className="bg-slate-100 hover:bg-slate-200 text-sm font-medium px-3 py-2 rounded-md cursor-pointer"
+              className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 hover:dark:bg-slate-700 text-sm font-medium px-3 py-2 rounded-md cursor-pointer"
               onClick={() => setIsLogoutOpen(false)}
             >
               Stay Logged In
@@ -229,7 +226,7 @@ export default function ConfirmatioModalView() {
 
           <div className="flex justify-end space-x-3">
             <button
-              className="bg-slate-100 hover:bg-slate-200 text-sm font-medium px-3 py-2 rounded-md cursor-pointer"
+              className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 hover:dark:bg-slate-700 text-sm font-medium px-3 py-2 rounded-md cursor-pointer"
               onClick={() => setIsResetOpen(false)}
             >
               Cancel

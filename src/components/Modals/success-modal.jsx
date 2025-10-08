@@ -122,13 +122,13 @@ export default function SuccessModalView() {
 
           <div className="flex justify-center space-x-3">
             <button
-              className="bg-slate-100 hover:bg-slate-200 text-sm font-medium px-4 py-2 rounded-md cursor-pointer"
+              className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 hover:dark:bg-slate-700 text-sm font-medium px-4 py-2 rounded-md cursor-pointer"
               onClick={() => setIsCompletionOpen(false)}
             >
               Later
             </button>
             <button
-              className={`bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium px-4 py-2 rounded-md cursor-pointer`}
+              className={`bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 hover:dark:bg-slate-200 text-slate-100 dark:text-slate-900 text-sm font-medium px-4 py-2 rounded-md cursor-pointer`}
               onClick={() => setIsCompletionOpen(false)}
             >
               Get Started

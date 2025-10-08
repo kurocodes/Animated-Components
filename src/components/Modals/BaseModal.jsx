@@ -65,14 +65,12 @@ export default function BaseModal({
   animationProps = {},
 }) {
   const { theme: globalTheme } = useTheme();
-  const resolvedTheme = theme || globalTheme;
+  const resolvedTheme = theme || globalTheme || "light";
 
   const anim = animations[animation] || animations.scale;
   const {
     initial = anim.initial,
     animate = anim.animate,
-    // exit = anim.exit,
-    // transition = { duration: 0.3, ease: "easeInOut" },
     ...rest
   } = animationProps;
 
@@ -117,7 +115,6 @@ export default function BaseModal({
             })}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            // exit={{ opacity: 0 }}
             onClick={closeOnBackdropClick ? onClose : undefined}
           />
 
@@ -130,8 +127,6 @@ export default function BaseModal({
             className={modal({ size, theme: resolvedTheme, class: className })}
             initial={initial}
             animate={animate}
-            // exit={exit}
-            // transition={transition}
             onClick={(e) => e.stopPropagation()}
             {...rest}
           >
@@ -172,7 +167,7 @@ export default function BaseModal({
               {children || (
                 <div className="space-y-4">
                   {/* Modal Content */}
-                  <p className="text-gray-500">
+                  <p className="text-gray-600 dark:text-gray-400">
                     {content ||
                       "This is a basic modal example. You can put any content here. The modal will close when you click the X button, press ESC, or click outside the modal."}
                   </p>

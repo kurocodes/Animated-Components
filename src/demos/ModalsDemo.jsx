@@ -11,8 +11,8 @@ export default function ModalsDemo() {
       {/* <BasicModalView /> */}
       {/* <AnimationModalView /> */}
       {/* <SizeVariantsModalView /> */}
-      {/* <FormModalView /> */}
-      <ConfirmatioModalView />
+      <FormModalView />
+      {/* <ConfirmatioModalView /> */}
       {/* <SuccessModalView /> */}
     </>
   );

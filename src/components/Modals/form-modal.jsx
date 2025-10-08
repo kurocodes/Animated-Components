@@ -48,7 +48,7 @@ export default function FormModalView() {
             <div>
               <label
                 htmlFor="firstName"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
               >
                 First Name *
               </label>
@@ -56,14 +56,14 @@ export default function FormModalView() {
                 type="text"
                 id="firstName"
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-100"
                 placeholder="Enter your first name"
               />
             </div>
             <div>
               <label
                 htmlFor="lastName"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
               >
                 Last Name *
               </label>
@@ -71,7 +71,7 @@ export default function FormModalView() {
                 type="text"
                 id="lastName"
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-100"
                 placeholder="Enter your last name"
               />
             </div>
@@ -80,7 +80,7 @@ export default function FormModalView() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
             >
               Email Address *
             </label>
@@ -88,7 +88,7 @@ export default function FormModalView() {
               type="email"
               id="email"
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-100"
               placeholder="your.email@example.com"
             />
           </div>
@@ -96,14 +96,14 @@ export default function FormModalView() {
           <div>
             <label
               htmlFor="subject"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
             >
               Subject *
             </label>
             <select
               id="subject"
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-100"
             >
               <option value="">Select a subject</option>
               <option value="general">General Inquiry</option>
@@ -116,7 +116,7 @@ export default function FormModalView() {
           <div>
             <label
               htmlFor="message"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
             >
               Message *
             </label>
@@ -124,7 +124,7 @@ export default function FormModalView() {
               id="message"
               rows={4}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none dark:bg-gray-700 dark:text-gray-100"
               placeholder="Please describe your question or issue..."
             ></textarea>
           </div>
@@ -137,23 +137,23 @@ export default function FormModalView() {
             />
             <label
               htmlFor="newsletter"
-              className="ml-2 text-sm block text-gray-700"
+              className="ml-2 text-sm block text-gray-700 dark:text-gray-300"
             >
               Subscribe to our newsletter for updates
             </label>
           </div>
 
-          <div className="flex justify-end space-x-3 pt-4 border-t border-gray-300">
+          <div className="flex justify-end space-x-3 pt-4 border-t border-gray-300 dark:border-gray-700">
             <button
               type="button"
-              className="bg-[hsl(220,15%,90%)] hover:bg-[hsl(220,15%,80%)] px-3 py-1.5 rounded-md cursor-pointer"
+              className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 hover:dark:bg-gray-700 px-3 py-1.5 rounded-md cursor-pointer"
               onClick={() => setIsContactOpen(false)}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className={`bg-slate-900 hover:bg-slate-800 text-white text-sm px-3 py-1.5 rounded-md cursor-pointer`}
+              className={`bg-slate-900 dark:bg-slate-50 hover:bg-slate-800 hover:dark:bg-slate-200 text-slate-200 dark:text-slate-800 text-sm font-medium px-3 py-1.5 rounded-md cursor-pointer`}
             >
               Send Message
             </button>
@@ -171,14 +171,14 @@ export default function FormModalView() {
         <form onSubmit={handleSettingSubmit} className="space-y-4">
           {/* Profile section */}
           <div>
-            <h3 className="text-lg font-medium text-gray-800 mb-4">
+            <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">
               Profile Settings
             </h3>
             <div className="space-y-4">
               <div>
                 <label
                   htmlFor="displayName"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                 >
                   Display Name
                 </label>
@@ -186,13 +186,13 @@ export default function FormModalView() {
                   type="text"
                   id="displayName"
                   defaultValue="John Doe"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-gray-100"
                 />
               </div>
               <div>
                 <label
                   htmlFor="bio"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                 >
                   Bio
                 </label>
@@ -200,15 +200,15 @@ export default function FormModalView() {
                   id="bio"
                   rows={3}
                   placeholder="Tell us about yourself..."
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none dark:bg-gray-700 dark:text-gray-100"
                 />
               </div>
             </div>
           </div>
 
           {/* Notification section */}
-          <div className="border-t border-gray-200 pt-6">
-            <h3 className="text-lg font-medium text-gray-800 mb-4">
+          <div className="border-t border-gray-200 dark:border-gray-800 pt-6">
+            <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">
               Notification Preferences
             </h3>
             <div className="space-y-3">
@@ -216,7 +216,7 @@ export default function FormModalView() {
                 <div>
                   <label
                     htmlFor="emailNotifications"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
                     Email Notifications
                   </label>
@@ -235,7 +235,7 @@ export default function FormModalView() {
                 <div>
                   <label
                     htmlFor="pushNotifications"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
                     Push Notifications
                   </label>
@@ -253,7 +253,7 @@ export default function FormModalView() {
                 <div>
                   <label
                     htmlFor="marketingEmails"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                   >
                     Marketing Emails
                   </label>
@@ -271,20 +271,20 @@ export default function FormModalView() {
           </div>
 
           {/* Privacy section */}
-          <div className="border-t border-gray-200 pt-6">
-            <h3 className="text-lg font-medium text-gray-800 mb-4">
+          <div className="border-t border-gray-200 dark:border-gray-800 pt-6">
+            <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4">
               Privacy Settings
             </h3>
             <div>
               <label
                 htmlFor="profileVisibilty"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
               >
                 Profile Visibility
               </label>
               <select
                 id="profileVisibilty"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-800 dark:text-gray-100"
               >
                 <option value="public">Public</option>
                 <option value="friends">Friends Only</option>
@@ -293,10 +293,10 @@ export default function FormModalView() {
             </div>
           </div>
 
-          <div className="flex justify-end space-x-3 pt-4 border-t border-gray-200">
+          <div className="flex justify-end space-x-3 pt-4 border-t border-gray-200 dark:border-gray-800">
             <button
               type="button"
-              className="bg-[hsl(220,15%,90%)] hover:bg-[hsl(220,15%,80%)] px-3 py-1.5 rounded-md cursor-pointer"
+              className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 hover:dark:bg-gray-700 px-3 py-1.5 rounded-md cursor-pointer"
               onClick={() => setIsSettingsOpen(false)}
             >
               Cancel

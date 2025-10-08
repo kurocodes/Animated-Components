@@ -22,7 +22,10 @@ const App = () => {
       {/* <ToggleSwitchDemo /> */}
       <ModalsDemo />
 
-      <button onClick={toggleTheme} className="absolute top-4 right-4 bg-gray-200 dark:bg-gray-800 p-2 rounded-full cursor-pointer">
+      <button
+        onClick={toggleTheme}
+        className="absolute top-4 right-4 bg-gray-200 dark:bg-gray-800 p-2 rounded-full cursor-pointer"
+      >
         <img
           src={theme === "light" ? icons.moon : icons.sun}
           alt="Change theme"
