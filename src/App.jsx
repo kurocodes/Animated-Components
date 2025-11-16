@@ -1,4 +1,3 @@
-import { useState } from "react";
 import AnimatedButtonsDemo from "./demos/AnimatedButtonsDemo";
 import AnimatedCardsDemo from "./demos/AnimatedCardsDemo";
 import AnimatedNavbarsDemo from "./demos/AnimatedNavbarsDemo";
@@ -6,11 +5,10 @@ import ModalsDemo from "./demos/ModalsDemo";
 import ToggleSwitchDemo from "./demos/ToggleSwitchDemo";
 import { useTheme } from "./context/ThemeContext";
 import { icons } from "./assets/assets";
+import ButtonsDemo from "./demos/ButtonsDemo";
 
 const App = () => {
-  const { theme, setTheme, toggleTheme } = useTheme();
-
-  // const themeStyle = theme === "light" ? "bg-[#fff7f7]" : "bg-[#000]";
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div
@@ -20,7 +18,8 @@ const App = () => {
       {/* <AnimatedCardsDemo /> */}
       {/* <AnimatedNavbarsDemo /> */}
       {/* <ToggleSwitchDemo /> */}
-      <ModalsDemo />
+      {/* <ModalsDemo /> */}
+      <ButtonsDemo />
 
       <button
         onClick={toggleTheme}

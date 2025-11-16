@@ -63,7 +63,7 @@ export const backdrop = tv({
     blur: {
       true: "backdrop-blur-sm",
       false: "",
-    }
+    },
   },
   defaultVariants: { blur: true },
 });

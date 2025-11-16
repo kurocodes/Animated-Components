@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BaseModal from "./BaseModal";
+import Button from "../Button/Button";
 
 export default function SuccessModalView() {
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
@@ -9,24 +10,21 @@ export default function SuccessModalView() {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
-        <button
-          className="bg-green-500 hover:bg-green-600 text-sm px-4 py-2 text-white rounded-lg cursor-pointer"
+        <Button
+          className="bg-green-500 hover:bg-green-600"
           onClick={() => setIsSuccessOpen(true)}
         >
           Success Message
-        </button>
-        <button
-          className="bg-slate-900 hover:bg-slate-800 text-sm px-4 py-2 text-white rounded-lg cursor-pointer"
-          onClick={() => setIsCompletionOpen(true)}
-        >
+        </Button>
+        <Button onClick={() => setIsCompletionOpen(true)}>
           Task Completion
-        </button>
-        <button
-          className="bg-purple-500 hover:bg-purple-600 text-sm px-4 py-2 text-white rounded-lg cursor-pointer"
+        </Button>
+        <Button
+          className="bg-purple-500 hover:bg-purple-600"
           onClick={() => setIsAchivementOpen(true)}
         >
-          Achivement Unlocked
-        </button>
+          Achievement Unlocked
+        </Button>
       </div>
 
       {/* Success Modal (No Title) */}
@@ -64,12 +62,12 @@ export default function SuccessModalView() {
           </div>
 
           <div className="pt-2">
-            <button
+            <Button
+              className="bg-green-500 hover:bg-green-600"
               onClick={() => setIsSuccessOpen(false)}
-              className={`bg-green-500 hover:bg-green-600 text-white text-sm font-medium px-3.5 py-2 rounded-md cursor-pointer`}
             >
               Continue
-            </button>
+            </Button>
           </div>
         </div>
       </BaseModal>
@@ -121,18 +119,15 @@ export default function SuccessModalView() {
           </div>
 
           <div className="flex justify-center space-x-3">
-            <button
-              className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 hover:dark:bg-slate-700 text-sm font-medium px-4 py-2 rounded-md cursor-pointer"
+            <Button
+              variant="secondary"
               onClick={() => setIsCompletionOpen(false)}
             >
               Later
-            </button>
-            <button
-              className={`bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 hover:dark:bg-slate-200 text-slate-100 dark:text-slate-900 text-sm font-medium px-4 py-2 rounded-md cursor-pointer`}
-              onClick={() => setIsCompletionOpen(false)}
-            >
+            </Button>
+            <Button onClick={() => setIsCompletionOpen(false)}>
               Get Started
-            </button>
+            </Button>
           </div>
         </div>
       </BaseModal>
@@ -211,12 +206,12 @@ export default function SuccessModalView() {
           </div>
 
           <div className="flex justify-center space-x-3">
-            <button
-              className={`bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 text-white text-sm font-medium px-4 py-2 rounded-md cursor-pointer`}
+            <Button
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 text-white dark:text-white"
               onClick={() => setIsAchivementOpen(false)}
             >
               Awesome!
-            </button>
+            </Button>
           </div>
         </div>
       </BaseModal>

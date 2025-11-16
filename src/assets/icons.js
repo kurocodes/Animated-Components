@@ -1,0 +1,10 @@
+export { FaArrowLeft as ArrowLeftIcon } from "react-icons/fa6";
+export { FaArrowRight as ArrowRightIcon } from "react-icons/fa6";
+export { FaCheck as CheckIcon } from "react-icons/fa6";
+export { FaXmark as XmarkIcon } from "react-icons/fa6";
+export { FaMagnifyingGlass as SearchIcon } from "react-icons/fa6";
+export { FaRegBell as BellIcon } from "react-icons/fa6";
+export { FaAt as AtIcon } from "react-icons/fa6";
+export { FaRegBookmark as BookmarkIcon } from "react-icons/fa6";
+export { FaPlus as PlusIcon } from "react-icons/fa6";
+export { FaMinus as MinusIcon } from "react-icons/fa6";

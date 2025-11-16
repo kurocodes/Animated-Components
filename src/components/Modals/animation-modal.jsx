@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "motion/react";
 import BaseModal from "./BaseModal";
+import Button from "../Button/Button";
 
 export default function AnimationModalView() {
   const [activeModal, setActiveModal] = useState(null);
@@ -44,14 +44,12 @@ export default function AnimationModalView() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {animations.map((animation) => (
         <div key={animation.type} className="space-y-2">
-          <motion.button
-            className="bg-white px-2 py-1 w-full border border-gray-300 rounded cursor-pointer focus:outline-none"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Button
+            className={"w-full justify-center"}
             onClick={() => openModal(animation.type)}
           >
             {animation.name} Animation
-          </motion.button>
+          </Button>
           <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
             {animation.description}
           </p>

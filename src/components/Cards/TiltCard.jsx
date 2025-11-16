@@ -10,8 +10,10 @@ export default function TiltCard({ children, className = "", ...props }) {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const xRatio = (x / rect.width) * 2 - 1;
-    const yRatio = (y / rect.height) * 2 - 1;
+    
+    const xRatio = Math.min(Math.max(x / rect.width, 0), 1) * 2 - 1;
+    const yRatio = Math.min(Math.max(y / rect.height, 0), 1) * 2 - 1;
+
     const rotateX = -(yRatio * maxTilt);
     const rotateY = xRatio * maxTilt;
     setTilt({ x: rotateX, y: rotateY });
@@ -37,7 +39,7 @@ export default function TiltCard({ children, className = "", ...props }) {
         }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20, mass: 0.8 }}
         {...props}
       ></BaseCard>
     </div>

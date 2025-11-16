@@ -28,6 +28,7 @@ import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { animations } from "./modal.animation.js";
 import { useTheme } from "../../context/ThemeContext.jsx";
+import Button from "../Button/Button.jsx";
 
 function Portal({ children }) {
   if (typeof window === "undefined") return null;
@@ -175,13 +176,13 @@ export default function BaseModal({
                   {/* Modal Footer Close Button */}
                   {showCloseInFooter && (
                     <div className="w-full flex justify-end">
-                      <button
+                      <Button
+                        variant="secondary"
                         ref={footerCloseRef}
-                        className={button({ theme: resolvedTheme })}
                         onClick={onClose}
                       >
                         Close
-                      </button>
+                      </Button>
                     </div>
                   )}
                 </div>

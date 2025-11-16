@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BaseModal from "./BaseModal";
+import Button from "../Button/Button";
 
 export default function FormModalView() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -22,18 +23,15 @@ export default function FormModalView() {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
-        <button
-          className="bg-slate-900 hover:bg-slate-800 text-sm px-4 py-2 text-white rounded-lg cursor-pointer"
-          onClick={() => setIsContactOpen(true)}
-        >
+        <Button onClick={() => setIsContactOpen(true)}>
           Contact Form Modal
-        </button>
-        <button
-          className="bg-purple-500 hover:bg-purple-600 text-sm px-4 py-2 text-white rounded-lg cursor-pointer"
+        </Button>
+        <Button
+          className="bg-purple-500 hover:bg-purple-600"
           onClick={() => setIsSettingsOpen(true)}
         >
           Settings Form Modal
-        </button>
+        </Button>
       </div>
 
       {/* Contact Form Modal */}
@@ -144,19 +142,16 @@ export default function FormModalView() {
           </div>
 
           <div className="flex justify-end space-x-3 pt-4 border-t border-gray-300 dark:border-gray-700">
-            <button
+            <Button
               type="button"
-              className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 hover:dark:bg-gray-700 px-3 py-1.5 rounded-md cursor-pointer"
+              variant="secondary"
               onClick={() => setIsContactOpen(false)}
             >
               Cancel
-            </button>
-            <button
-              type="submit"
-              className={`bg-slate-900 dark:bg-slate-50 hover:bg-slate-800 hover:dark:bg-slate-200 text-slate-200 dark:text-slate-800 text-sm font-medium px-3 py-1.5 rounded-md cursor-pointer`}
-            >
+            </Button>
+            <Button type="submit" onClick={() => setIsSettingsOpen(false)}>
               Send Message
-            </button>
+            </Button>
           </div>
         </form>
       </BaseModal>
@@ -294,19 +289,20 @@ export default function FormModalView() {
           </div>
 
           <div className="flex justify-end space-x-3 pt-4 border-t border-gray-200 dark:border-gray-800">
-            <button
+            <Button
               type="button"
-              className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 hover:dark:bg-gray-700 px-3 py-1.5 rounded-md cursor-pointer"
+              variant="secondary"
               onClick={() => setIsSettingsOpen(false)}
             >
               Cancel
-            </button>
-            <button
+            </Button>
+            <Button
               type="submit"
-              className={`bg-purple-500 hover:bg-purple-600 text-white text-sm px-3 py-1.5 rounded-md cursor-pointer`}
+              className="bg-purple-500 hover:bg-purple-600"
+              onClick={() => setIsSettingsOpen(false)}
             >
               Save Settings
-            </button>
+            </Button>
           </div>
         </form>
       </BaseModal>

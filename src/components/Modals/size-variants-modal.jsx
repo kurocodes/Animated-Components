@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "motion/react";
 import BaseModal from "./BaseModal";
+import Button from "../Button/Button";
 
 export default function SizeVariantsModalView() {
   const [activeModal, setActiveModal] = useState(null);
@@ -14,7 +14,8 @@ export default function SizeVariantsModalView() {
     {
       size: "md",
       name: "Medium",
-      color: "bg-slate-900 dark:bg-slate-200 hover:bg-slate-800 hover:dark:bg-slate-300 text-white dark:text-slate-900 font-medium",
+      color:
+        "bg-slate-900 dark:bg-slate-200 hover:bg-slate-800 hover:dark:bg-slate-300 text-white dark:text-slate-900",
     },
     {
       size: "lg",
@@ -40,13 +41,13 @@ export default function SizeVariantsModalView() {
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
         {sizeVariants.map((variant) => (
-          <motion.button
-            className={`px-4 py-2 text-sm text-white rounded-md cursor-pointer focus:outline-none ${variant.color}`}
-            whileTap={{ scale: 0.95 }}
+          <Button
+            key={variant.name}
+            className={variant.color}
             onClick={() => openModal(variant.size)}
           >
             {variant.name} Modal
-          </motion.button>
+          </Button>
         ))}
       </div>
 
@@ -63,18 +64,12 @@ export default function SizeVariantsModalView() {
             (28rem).
           </p>
           <div className="flex justify-end space-x-2">
-            <button
-              className="bg-[hsl(220,15%,90%)] hover:bg-[hsl(220,15%,80%)] dark:bg-[hsl(220,15%,20%)] hover:dark:bg-[hsl(220,15%,30%)] px-3 py-1.5 rounded-md cursor-pointer"
-              onClick={closeModal}
-            >
-              Cancel
-            </button>
-            <button
-              className={`${sizeVariants[0].color} text-white text-sm px-3 py-1.5 rounded-md cursor-pointer`}
-              onClick={closeModal}
-            >
+            <Button variant="secondary" onClick={closeModal}>
+              Close
+            </Button>
+            <Button className={sizeVariants[0].color} onClick={closeModal}>
               Confirm
-            </button>
+            </Button>
           </div>
         </div>
       </BaseModal>
@@ -91,19 +86,16 @@ export default function SizeVariantsModalView() {
             Default size, good for most content. Max width: 512px (32rem).
           </p>
           <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-            <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Sample Content</h3>
+            <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">
+              Sample Content
+            </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               This is the standard modal size that works well for most use cases
               including forms, notifications, and general content.
             </p>
           </div>
           <div className="flex justify-end space-x-2">
-            <button
-              className={`${sizeVariants[1].color} text-white text-sm px-3 py-1.5 rounded-md cursor-pointer`}
-              onClick={closeModal}
-            >
-              Got it
-            </button>
+            <Button onClick={closeModal}>Got it</Button>
           </div>
         </div>
       </BaseModal>
@@ -121,26 +113,27 @@ export default function SizeVariantsModalView() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-              <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Feature 1</h3>
+              <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">
+                Feature 1
+              </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Large modals provide more space for complex layouts and detailed
                 information.
               </p>
             </div>
             <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-              <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Feature 2</h3>
+              <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">
+                Feature 2
+              </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Perfect for multi-column layouts and comprehensive forms.
               </p>
             </div>
           </div>
           <div className="flex justify-end space-x-2">
-            <button
-              className={`${sizeVariants[2].color} text-white text-sm px-3 py-1.5 rounded-md cursor-pointer`}
-              onClick={closeModal}
-            >
+            <Button className={sizeVariants[2].color} onClick={closeModal}>
               Close
-            </button>
+            </Button>
           </div>
         </div>
       </BaseModal>
@@ -163,7 +156,9 @@ export default function SizeVariantsModalView() {
                 key={item}
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 rounded-lg border border-gray-200 dark:border-gray-700"
               >
-                <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Item {item}</h3>
+                <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">
+                  Item {item}
+                </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Extra large modals can accommodate extensive content and
                   complex data presentations.
@@ -172,12 +167,9 @@ export default function SizeVariantsModalView() {
             ))}
           </div>
           <div className="flex justify-end space-x-2">
-            <button
-              className={`${sizeVariants[2].color} text-white text-sm px-3 py-1.5 rounded-md cursor-pointer`}
-              onClick={closeModal}
-            >
+            <Button className={sizeVariants[3].color} onClick={closeModal}>
               Close
-            </button>
+            </Button>
           </div>
         </div>
       </BaseModal>

@@ -29,13 +29,13 @@ export default function ConfettiButton() {
     <div className="relative inline-block">
       <motion.button
         className="relative z-10 px-6 py-3 rounded-xl font-bold uppercase tracking-wide 
-                 bg-pink-500 text-white cursor-pointer select-none shadow-lg"
+                 bg-blue-500 text-white cursor-pointer select-none shadow-lg"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95, rotate: -2 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
         onClick={spawnParticles}
       >
-        Celebrate 🎉
+        Let's Connect ✨
       </motion.button>
 
       {/* Particles */}

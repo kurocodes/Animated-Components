@@ -1,26 +1,20 @@
 import { useState } from "react";
 import BaseModal from "./BaseModal";
 import { motion } from "motion/react";
+import Button from "../Button/Button";
 
 export default function BasicModalView() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClose = () => {
+  const toggleModel = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <>
-      <motion.button
-        className="bg-white px-2 py-1 border border-gray-300 rounded cursor-pointer focus:outline-none"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={handleClose}
-      >
-        Basic Model
-      </motion.button>
+      <Button onClick={toggleModel}>Basic Model</Button>
 
-      <BaseModal isOpen={isOpen} onClose={handleClose} />
+      <BaseModal isOpen={isOpen} onClose={toggleModel} />
     </>
   );
 }

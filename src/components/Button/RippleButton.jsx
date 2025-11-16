@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import { FaCheck, FaTrash, FaPaperPlane } from "react-icons/fa";
+import { FaCheck, FaTrash, FaPaperPlane } from "react-icons/fa";2
 
 const variants = {
   primary: {

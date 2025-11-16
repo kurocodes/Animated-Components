@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BaseModal from "./BaseModal";
+import Button from "../Button/Button";
 
 export default function ConfirmatioModalView() {
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -24,24 +25,21 @@ export default function ConfirmatioModalView() {
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
-        <button
-          className="bg-red-500 hover:bg-red-600 text-sm px-4 py-2 text-white rounded-lg cursor-pointer"
-          onClick={() => setIsDeleteOpen(true)}
-        >
+        <Button variant="destructive" onClick={() => setIsDeleteOpen(true)}>
           Delete Item
-        </button>
-        <button
-          className="bg-orange-500 hover:bg-orange-600 text-sm px-4 py-2 text-white rounded-lg cursor-pointer"
+        </Button>
+        <Button
+          className="bg-orange-500 hover:bg-orange-600"
           onClick={() => setIsLogoutOpen(true)}
         >
           Logout
-        </button>
-        <button
-          className="bg-yellow-500 hover:bg-yellow-600 text-sm px-4 py-2 text-white rounded-lg cursor-pointer"
+        </Button>
+        <Button
+          className="bg-yellow-500 hover:bg-yellow-600"
           onClick={() => setIsResetOpen(true)}
         >
           Reset Settings
-        </button>
+        </Button>
       </div>
 
       {/* Delete Confirmation Modal */}
@@ -104,15 +102,12 @@ export default function ConfirmatioModalView() {
           </div>
 
           <div className="flex justify-end space-x-3">
-            <button className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 hover:dark:bg-slate-700 text-sm font-medium px-3 py-2 rounded-md cursor-pointer">
+            <Button variant="secondary" onClick={() => setIsDeleteOpen(false)}>
               Cancel
-            </button>
-            <button
-              className={`bg-red-500 hover:bg-red-600 text-white text-sm font-medium px-3 py-1.5 rounded-md cursor-pointer`}
-              onClick={handleDelete}
-            >
+            </Button>
+            <Button variant="destructive" onClick={handleDelete}>
               Delete
-            </button>
+            </Button>
           </div>
         </div>
       </BaseModal>
@@ -160,18 +155,15 @@ export default function ConfirmatioModalView() {
           </div>
 
           <div className="flex justify-end space-x-3">
-            <button
-              className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 hover:dark:bg-slate-700 text-sm font-medium px-3 py-2 rounded-md cursor-pointer"
-              onClick={() => setIsLogoutOpen(false)}
-            >
+            <Button variant="secondary" onClick={() => setIsLogoutOpen(false)}>
               Stay Logged In
-            </button>
-            <button
+            </Button>
+            <Button
+              className="bg-orange-500 hover:bg-orange-600"
               onClick={handleLogout}
-              className={`bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-3.5 py-2 rounded-md cursor-pointer`}
             >
               Logout
-            </button>
+            </Button>
           </div>
         </div>
       </BaseModal>
@@ -225,18 +217,15 @@ export default function ConfirmatioModalView() {
           </div>
 
           <div className="flex justify-end space-x-3">
-            <button
-              className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 hover:dark:bg-slate-700 text-sm font-medium px-3 py-2 rounded-md cursor-pointer"
-              onClick={() => setIsResetOpen(false)}
-            >
+            <Button variant="secondary" onClick={() => setIsResetOpen(false)}>
               Cancel
-            </button>
-            <button
-              onClick={handleLogout}
-              className={`bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium px-3.5 py-2 rounded-md cursor-pointer`}
+            </Button>
+            <Button
+              className="bg-yellow-500 hover:bg-yellow-600"
+              onClick={handleReset}
             >
               Reset Settings
-            </button>
+            </Button>
           </div>
         </div>
       </BaseModal>

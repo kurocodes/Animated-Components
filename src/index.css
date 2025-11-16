@@ -4,6 +4,10 @@
 /* Configure dark mode to use class strategy */
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --inset-shadow-pressed: inset 2px 2px 4px 0 rgba(15, 23, 43, 0.2), inset -2px -2px 4px 0 rgba(235, 230, 231, 0.5);
+}
+
 * {
   box-sizing: border-box;
   /* font-family: "Poppins", sans-serif; */
